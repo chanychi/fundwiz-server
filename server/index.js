@@ -24,7 +24,6 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin"}));
 app.use(cors());
 // app.disable('x-powered-by')
 
-
 app.use("/kpi", kpiRoutes);
 app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
 // mongoose

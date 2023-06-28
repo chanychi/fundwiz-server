@@ -1,21 +1,18 @@
 const mongoose = require("mongoose");
-const { loadType } = require("mongoose-currency");
-
 const Schema = mongoose.Schema;
-loadType(mongoose);
 
 const daySchema = new Schema(
   {
     date: String,
     revenue: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
     expenses: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
   },
   { toJSON: { getters: true } }
@@ -25,24 +22,24 @@ const monthSchema = new Schema(
   {
     month: String,
     revenue: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
     expenses: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
     operationalExpenses: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
     nonOperationalExpenses: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
   },
   { toJSON: { getters: true } }
@@ -51,26 +48,26 @@ const monthSchema = new Schema(
 const KPISchema = new Schema(
   {
     totalProfit: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
     totalRevenue: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
     totalExpenses: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
-      get: (v) => v / 100,
+      type: Number,
+      required: true,
+      get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
     },
     expensesByCategory: {
       type: Map,
       of: {
-        type: mongoose.Types.Currency,
-        currency: "USD",
-        get: (v) => v / 100,
+        type: Number,
+        required: true,
+        get: (v) => v / 100, // Convert from cents to dollars when retrieving the value
       },
     },
     monthlyData: [monthSchema],
@@ -81,4 +78,4 @@ const KPISchema = new Schema(
 
 const KPI = mongoose.model("KPI", KPISchema);
 
-module.exports = KPI
+module.exports = KPI;

@@ -1,6 +1,6 @@
 const KPI = require("../models/KPI.js");
-const { kpis } = require('../data/data.js');
-// const { kpis, products, transactions } = require('../data/data.js');
+// const { kpis } = require('../data/data.js');
+const { kpis, products, transactions } = require('../data/data.js');
 
 class KPIrequest {
   async getKPIs(req, res) {

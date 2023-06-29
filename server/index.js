@@ -2,6 +2,8 @@ const express = require('express')
 const dotenv = require('dotenv');
 const mongoose = require('mongoose')
 const kpiRoutes = require("./routes/kpi.js");
+const productRoutes = require("./routes/product.js");
+const transactionRoutes = require("./routes/transaction.js");
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit')
@@ -23,6 +25,8 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin"}));
 app.use(cors());
 
 app.use("/kpi", kpiRoutes);
+app.use("/product", productRoutes);
+app.use("/transaction", transactionRoutes);
 
 mongoose
   .connect(process.env.MONGO_URL, {

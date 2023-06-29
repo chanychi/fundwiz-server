@@ -7,6 +7,7 @@ function convertStringToNumber(value) {
       return parseFloat(cleanedValue);
     }
   }
+  
   return value;
 }
 

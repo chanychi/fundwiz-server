@@ -21,7 +21,6 @@ app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin"}));
 app.use(cors());
-// app.disable('x-powered-by')
 
 app.use("/kpi", kpiRoutes);
 

@@ -1,13 +1,11 @@
 const KPI = require("../models/KPI.js");
-// const { kpis } = require('../data/data.js');
-const { kpis, products, transactions } = require('../data/data.js');
-
+const { kpis } = require('../data/data.js');
 class KPIrequest {
   async getKPIs(req, res) {
     try {
       const kpisData = await this.fetchKPIs();
 
-      if (!kpisData.length) await this.seedData(kpis);
+      if (this.isEmpty(kpisData)) await this.seedData(kpis);
 
       const data = await this.fetchKPIs();
       res.status(200).json(data);
@@ -22,6 +20,10 @@ class KPIrequest {
 
   async seedData(data) {
     await KPI.insertMany(data);
+  }
+
+  isEmpty(data) {
+    return !data.length ? true : false;
   }
 }
 

@@ -9,6 +9,8 @@ class Request {
 
     if (this.isEmpty(modelData)) {
       await this.seedData(this.data);
+    } else {
+      return modelData;
     }
 
     const data = await this.fetchData();

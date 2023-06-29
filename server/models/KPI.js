@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const convertStringToNumber = require("../utils/helper.js")
+const mongoose = require('mongoose');
+const convertStringToNumber = require('../utils/helper.js')
 const Schema = mongoose.Schema;
 
 const daySchema = new Schema(

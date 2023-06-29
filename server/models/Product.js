@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Types;
-const convertStringToNumber = require("../utils/helper.js")
+const convertStringToNumber = require('../utils/helper.js')
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema(

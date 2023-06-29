@@ -1,12 +1,13 @@
-const express = require('express')
+const express = require('express');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose')
-const kpiRoutes = require("./routes/kpi.js");
-const productRoutes = require("./routes/product.js");
-const transactionRoutes = require("./routes/transaction.js");
+const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit')
+const rateLimit = require('express-rate-limit');
+
+const kpiRoutes = require('./routes/kpi.js');
+const productRoutes = require('./routes/product.js');
+const transactionRoutes = require('./routes/transaction.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -18,7 +19,7 @@ const limiter = rateLimit({
   message: 'Too many requests, please try again later.',
 });
 
-app.use(limiter)
+app.use(limiter);
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin"}));

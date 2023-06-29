@@ -1,5 +1,5 @@
 const express = require('express')
-const KPIrequest = require('../controllers/kpiController');
+const KPIrequest = require('../controllers/KPIController');
 const router = express.Router();
 const kpi = new KPIrequest()
 
